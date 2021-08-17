@@ -1,0 +1,35 @@
+---
+input:
+  delete: false
+  # dir: "/tmp/dmarc_files/"
+  imap:
+    server: "${IMAP_SERVER}"
+    username: "${IMAP_USER}"
+    password: "${IMAP_PASS}"
+    mailbox: "${IMAP_MAILBOX}"
+    # enable debug messages for imap package?
+    debug: false
+    # delete emails from server after fetch?
+    delete: false
+
+output:
+  # output file
+  # should be: string, golang template string or "stdout"
+  file: "${OUTPUT_DIR}/{{ .ID }}.html"
+
+  # output format
+  # should be: txt, json, html_static, html
+  format: "${OUTPUT_FORMAT}"
+
+  # if you configure format to "html" output, don't forget to
+  # configure assets_path and your web server
+  asset_path: "${OUTPUT_ASSETS}"
+
+# perform reverse lookups?
+lookup_addr: ${LOOKUP_ADDR}
+
+# merge multiple similar reports to one?
+merge_reports: ${MERGE_REPORT}
+
+log_debug: false
+log_datetime: true
