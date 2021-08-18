@@ -2,14 +2,16 @@
 FROM	alpine:latest as builder
 
 ENV	GOPATH /go
-ENV	GO111MODULE off
 WORKDIR /go
 RUN	apk add --no-cache go make git
+# Download requires GOPATH mode as .git is required by Makefile
+ENV	GO111MODULE off
 # always return true as the repository has no valid go-get structure
 RUN	go get -v -d -u github.com/tierpod/dmarc-report-converter || true
-# hadolint ignore=DL3003
-RUN	cd "/go/src/github.com/tierpod/dmarc-report-converter"* \
-		&& make install
+# Makefile requires module-aware mode
+ENV	GO111MODULE on
+WORKDIR	/go/src/github.com/tierpod/dmarc-report-converter
+RUN	make install
 
 FROM	alpine:latest
 
