@@ -18,6 +18,7 @@ Here a list of all supported configuration variables that can be changed by sett
 | ENV | Default | Description |
 | --- | ------- | ----------- |
 | `IMAP_SERVER` |  | DNS of IMAP server to grab DMARC e-mails from |
+| `IMAP_PORT` | `143` | Port of IMAP server to grab DMARC e-mails from |
 | `IMAP_USER` |  | Username of IMAP account the contains DMARC e-mails |
 | `IMAP_PASS` |  | Password of IMAP account the contains DMARC e-mails |
 | `IMAP_MAILBOX` | Inbox | Mailbox where DMARC e-mails are stored |

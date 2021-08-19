@@ -3,7 +3,7 @@ input:
   delete: false
   dir: "/tmp/dmarc_files/"
   imap:
-    server: "${IMAP_SERVER}"
+    server: "${IMAP_SERVER}:${IMAP_PORT}"
     username: "${IMAP_USER}"
     password: "${IMAP_PASS}"
     mailbox: "${IMAP_MAILBOX}"
