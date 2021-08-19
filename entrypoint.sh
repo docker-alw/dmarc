@@ -1,5 +1,11 @@
 #!/bin/sh
 
+set -e
+
+if [ -n "${DEBUG}" ]; then
+    set -x
+fi
+
 IMAP_SERVER="${IMAP_SERVER}"
 IMAP_USER="${IMAP_USER}"
 IMAP_PASS="${IMAP_PASS}"
@@ -23,7 +29,7 @@ if [ -z "${IMAP_PASS}" ]; then
     exit 1
 fi
 
-envsubst < /config.dist.yaml > /config.yaml
+envsubst < /config.dist.yaml > /tmp/config.yaml
 
 /opt/dmarc-report-converter/dmarc-report-converter --version
-/opt/dmarc-report-converter/dmarc-report-converter --config /config.yaml
+/opt/dmarc-report-converter/dmarc-report-converter --config /tmp/config.yaml

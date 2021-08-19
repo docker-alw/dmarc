@@ -25,8 +25,7 @@ RUN	apk add --no-cache gettext \
 			dmarc
 
 COPY	--from=builder --chown=dmarc:dmarc /opt/dmarc-report-converter /opt/dmarc-report-converter
-COPY	./config.yaml /config.dist.yaml
-COPY	./entrypoint.sh /entrypoint.sh
+COPY	./config.dist.yaml ./entrypoint.sh /
 
 VOLUME	/app
 
