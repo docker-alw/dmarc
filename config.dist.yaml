@@ -1,7 +1,7 @@
 ---
 input:
   delete: false
-  # dir: "/tmp/dmarc_files/"
+  dir: "/tmp/dmarc_files/"
   imap:
     server: "${IMAP_SERVER}"
     username: "${IMAP_USER}"
