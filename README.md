@@ -11,7 +11,7 @@ Generate static HTML overview for DMARC messages based on https://github.com/tie
 
 To run this container use:
 ```
-docker run -e IMAP_SERVER="mail.example.com" -e IMAP_USER="j.doe" -e IMAP_PASS="15zLuFR8ZJhEfwoPQYbTeGh1vWf0OgZr" -v "/path/to/dmarc-results/:/app/" "registry.gitlab.com/docker-alw/dmarc"
+docker run -e IMAP_SERVER="mail.example.com" -e IMAP_USER="j.doe" -e IMAP_PASS="15zLuFR8ZJhEfwoPQYbTeGh1vWf0OgZr" -v "/path/to/dmarc-results/:/app/" "ghcr.io/docker-alw/dmarc"
 ```
 
 After that you can access the results as static HTML in `/path/to/dmarc-results/`.
