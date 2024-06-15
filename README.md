@@ -1,8 +1,11 @@
 # dmarc
 
-Generate static HTML overview for DMARC messages based on https://github.com/tierpod/dmarc-report-converter/.
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/docker-alw/dmarc/main.svg)](https://results.pre-commit.ci/latest/github/docker-alw/dmarc/main)
+[![dependabot update](https://github.com/docker-alw/dmarc/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/docker-alw/dmarc/actions/workflows/dependabot/dependabot-updates)
+[![dependabot validate](https://github.com/docker-alw/dmarc/actions/workflows/dependabot_validate.yml/badge.svg)](https://github.com/docker-alw/dmarc/actions/workflows/dependabot_validate.yml)
+[![Build Main Image](https://github.com/docker-alw/dmarc/actions/workflows/build_image.yml/badge.svg)](https://github.com/docker-alw/dmarc/actions/workflows/build_image.yml)
 
-[![pipeline status](https://gitlab.com/docker-alw/dmarc/badges/main/pipeline.svg)](https://gitlab.com/docker-alw/dmarc/-/commits/main)
+Generate static HTML overview for DMARC messages based on https://github.com/tierpod/dmarc-report-converter/.
 
 ## Run
 
@@ -23,6 +26,7 @@ Here a list of all supported configuration variables that can be changed by sett
 | `IMAP_PASS` |  | Password of IMAP account the contains DMARC e-mails |
 | `IMAP_MAILBOX` | Inbox | Mailbox where DMARC e-mails are stored |
 | `OUTPUT_DIR` | `/app` | Directory where generated output should be stored within the container |
+| `OUTPUT_TEMPLATE` | `{{ .ID }}` | template to use as filename for generated output |
 | `OUTPUT_FORMAT` | `html_static` | Format used to generate output in (see [tierpod/dmarc-report-converter](https://github.com/tierpod/dmarc-report-converter/#configuration) for details) |
 | `OUTPUT_ASSETS` | `./assets` | Directory containing all generated assets when format is `html` |
 | `LOOKUP_ADDR` | `true` | Reverse lookup IP addresses in DMARC reports via DNS. Setting to `false` disables lookup |

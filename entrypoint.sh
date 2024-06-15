@@ -7,12 +7,13 @@ if [ -n "${DEBUG}" ]; then
 fi
 
 set -o allexport
-IMAP_SERVER="${IMAP_SERVER}"
+IMAP_SERVER="${IMAP_SERVER:-}"
 IMAP_PORT="${IMAP_PORT:-993}"
-IMAP_USER="${IMAP_USER}"
-IMAP_PASS="${IMAP_PASS}"
+IMAP_USER="${IMAP_USER:-}"
+IMAP_PASS="${IMAP_PASS:-}"
 IMAP_MAILBOX="${IMAP_MAILBOX:-Inbox}"
 OUTPUT_DIR="${OUTPUT_DIR:-/app}"
+OUTPUT_TEMPLATE="${OUTPUT_TEMPLATE:-\{\{ .ID \}\}}"
 OUTPUT_FORMAT="${OUTPUT_FORMAT:-html_static}"
 OUTPUT_ASSETS="${OUTPUT_ASSETS:-./assets}"
 LOOKUP_ADDR="${LOOKUP_ADDR:-true}"
@@ -34,5 +35,5 @@ fi
 
 envsubst < /config.dist.yaml > /tmp/config.yaml
 
-/opt/dmarc-report-converter/dmarc-report-converter --version
-/opt/dmarc-report-converter/dmarc-report-converter --config /tmp/config.yaml
+/opt/dmarc-report-converter/dmarc-report-converter -version
+/opt/dmarc-report-converter/dmarc-report-converter -config /tmp/config.yaml

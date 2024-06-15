@@ -1,8 +1,10 @@
 # vim:set ft=dockerfile:
+# hadolint ignore=DL3007
 FROM	alpine:latest as builder
 
 ENV	GOPATH /go
 WORKDIR /go
+# hadolint ignore=DL3018
 RUN	apk add --no-cache go make git
 # Download requires GOPATH mode as .git is required by Makefile
 ENV	GO111MODULE off
@@ -13,24 +15,20 @@ ENV	GO111MODULE on
 WORKDIR	/go/src/github.com/tierpod/dmarc-report-converter
 RUN	make install
 
+# hadolint ignore=DL3007
 FROM	alpine:latest
 
-WORKDIR	/opt
-
-RUN	apk add --no-cache gettext \
-		&& adduser \
+RUN adduser \
 			-u 1001 \
 			-s /bin/sh \
 			-D \
 			dmarc
-
-COPY	--from=builder --chown=dmarc:dmarc /opt/dmarc-report-converter /opt/dmarc-report-converter
 COPY	./config.dist.yaml ./entrypoint.sh /
-
+# hadolint ignore=DL3018
+RUN	apk --no-cache add gettext
+COPY	--from=builder --chown=dmarc:dmarc /opt/dmarc-report-converter /opt/dmarc-report-converter
+RUN	apk --no-cache upgrade
 VOLUME	/app
-
 USER	dmarc
-
 WORKDIR	/opt/dmarc-report-converter
-
-CMD 	["/bin/sh", "/entrypoint.sh"]
+ENTRYPOINT 	["/bin/sh", "/entrypoint.sh"]

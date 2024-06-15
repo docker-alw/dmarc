@@ -1,0 +1,15 @@
+---
+name: dependabot validate
+
+"on":
+  pull_request:
+    paths:
+      - ".github/dependabot.yml"
+      - ".github/workflows/dependabot_validate.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    permissions:
+      pull-requests: write
+    uses: docker-alw/workflows/.github/workflows/dependabot_validate.yml@v0

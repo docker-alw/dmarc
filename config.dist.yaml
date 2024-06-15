@@ -15,7 +15,7 @@ input:
 output:
   # output file
   # should be: string, golang template string or "stdout"
-  file: "${OUTPUT_DIR}/{{ .ID }}.html"
+  file: "${OUTPUT_DIR}/${OUTPUT_TEMPLATE}.html"
 
   # output format
   # should be: txt, json, html_static, html

@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.6.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -13,8 +13,22 @@ repos:
       - id: check-symlinks
       - id: destroyed-symlinks
       - id: check-executables-have-shebangs
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/maxwinterstein/shfmt-py
+    rev: v3.7.0.1
+    hooks:
+      - id: shfmt
+        args:
+          - "--binary-next-line"
+          - "--case-indent"
+          - "--indent"
+          - "4"
+          - "--space-redirects"
   - repo: https://github.com/AleksaC/hadolint-py
-    rev: v2.1.0
+    rev: v2.12.1b3
     hooks:
       - id: hadolint
         args:
@@ -26,3 +40,8 @@ repos:
           - 'DL3013'
           - '--ignore'
           - 'DL3018'
+  - repo: https://github.com/sirosen/check-jsonschema
+    rev: 0.28.5
+    hooks:
+      - id: check-github-workflows
+      - id: check-github-actions
