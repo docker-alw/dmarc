@@ -23,4 +23,4 @@ jobs:
     permissions:
       actions: read
       packages: write
-    uses: docker-alw/workflows/.github/workflows/build_image.yml@v0
+    uses: docker-alw/workflows/.github/workflows/build_image.yml@v0.1.6
