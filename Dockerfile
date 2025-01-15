@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 # hadolint ignore=DL3007
-FROM	alpine:latest as builder
+FROM	alpine:latest AS builder
 
 # hadolint ignore=DL3018
 RUN	apk add --no-cache go make git
