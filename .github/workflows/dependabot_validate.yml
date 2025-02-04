@@ -12,4 +12,4 @@ jobs:
   validate:
     permissions:
       pull-requests: write
-    uses: docker-alw/workflows/.github/workflows/dependabot_validate.yml@v0
+    uses: docker-alw/workflows/.github/workflows/dependabot_validate.yml@v0.1.6
