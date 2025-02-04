@@ -1,0 +1,22 @@
+---
+name: Show Information
+
+"on":
+  pull_request:
+    types:
+      - edited
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - .pre-commit-config.yaml
+
+jobs:
+  show-actor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Show GitHub Actor
+        run: echo "actor '${{ github.actor }}'"
