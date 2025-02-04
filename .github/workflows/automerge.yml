@@ -8,6 +8,8 @@ name: Auto Merge Pre-Commit CI PRs
       - opened
       - reopened
       - synchronize
+    paths:
+      - .pre-commit-config.yaml
   check_suite:
     types:
       - completed
