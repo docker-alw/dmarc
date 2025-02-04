@@ -9,6 +9,7 @@ name: "Build Main Image"
     branches: [main]
     paths:
       - .github/workflows/build_image.yml
+      - .pre-commit-config.yaml
       - Dockerfile
       - test.sh
       - config.dist.yaml
