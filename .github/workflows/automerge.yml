@@ -23,7 +23,7 @@ jobs:
     if: github.actor == 'pre-commit-ci[bot]'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Auto Merge PR
         uses: pascalgn/automerge-action@v0.16.4
