@@ -29,5 +29,7 @@ jobs:
         uses: pascalgn/automerge-action@v0.16.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_METHOD: merge
           MERGE_FORKS: "false"
+          MERGE_LABELS: ""
+          MERGE_METHOD: "rebase"
+          UPDATE_METHOD: "rebase"
