@@ -14,11 +14,11 @@ repos:
       - id: destroyed-symlinks
       - id: check-executables-have-shebangs
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.11.0.1
+    rev: v0.11.0.1-1
     hooks:
       - id: shellcheck
   - repo: https://github.com/maxwinterstein/shfmt-py
-    rev: v4.0.0
+    rev: v4.1.0
     hooks:
       - id: shfmt
         args:
@@ -28,7 +28,7 @@ repos:
           - "4"
           - "--space-redirects"
   - repo: https://github.com/AleksaC/hadolint-py
-    rev: v2.14.0
+    rev: v2.15.1
     hooks:
       - id: hadolint
         args:
@@ -41,7 +41,7 @@ repos:
           - '--ignore'
           - 'DL3018'
   - repo: https://github.com/sirosen/check-jsonschema
-    rev: 0.37.2
+    rev: 0.38.0
     hooks:
       - id: check-github-workflows
       - id: check-github-actions
